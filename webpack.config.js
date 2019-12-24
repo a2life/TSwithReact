@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
 
     entry: {
@@ -30,6 +31,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
+        new CompressionPlugin()
 
     ],
     resolve: {
@@ -43,7 +45,9 @@ module.exports = {
     },
     optimization: {
         minimize: true,
-        minimizer: [new TerserPlugin()]
+        minimizer: [new TerserPlugin({
+            parallel: true
+        })]
     },
     devtool: "cheap-module-source-map"
 }
