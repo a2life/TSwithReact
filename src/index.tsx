@@ -3,7 +3,8 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import 'tslib';
  import 'ts-polyfill';
- import 'url-search-params-polyfill';  // ts-polyfill does not include urlSearchParams(?)
+ import "core-js/stable/url-search-params"; // url-search-params (DOM lib is not included in ts-polyfill
+
 // import 'core-js';
 // import "regenerator-runtime/runtime";
 
